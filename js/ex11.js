@@ -23,3 +23,14 @@ printPet('Eve', 35, "Kong The Donkey", 20);
 
 // tough part
 
+console.log("------------------ callback style ----------------");
+
+const fancyPet = (owner_name, owner_age, pet_name, pet_age, cb) => {
+    cb(owner_name, owner_age);
+    console.log(`That person owns ${pet_name} who is ${pet_age} years old.`);
+}
+
+fancyPet('Zed', 44, 'Mr. Scruffles', 10, (name, age) => {
+    console.log(`Ohhhh fancy ${name} you are ${age} years old.`);
+});
+
