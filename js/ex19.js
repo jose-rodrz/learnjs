@@ -63,6 +63,25 @@ languages challenge:
 
 /*
 Final challenge:
+Little
+Red
+Corvette
+Baby
+UR
+Mush
+2
+Fast
+
+ex.cars[1].size
+ex.cars[1].color
+ex.cars[1].type
+ex.cars[3].size
+ex.fruit[3].rating
+ex.languages[0].opinion[1]
+ex.fruit[2].count
+ex.languages[3].speed
+
+CORRECT!
 */
 
 
