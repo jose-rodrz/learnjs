@@ -19,21 +19,38 @@ const ask = (hp, prompt) => {
 }
 
 const door = (hp) => {
-    puzzle = "Puzzle text";
-    let answer = ask(hp, puzzle);
+    puzzle = `
+You hear an alien voice coming from nowhere and everywhere:
+"Neither silver, nor copper's gleam,
+Cherished by both pauper and queen.
+Solve this riddle and pass the door,
+What treasure lies ahead, explore."
 
-    if (answer == "correct") {
+...you dont'heart the voice again after that.\nMaybe...it's a riddle? You decide to scream your answer:
+`
+    let answer = ask(hp, puzzle)
+
+    if (answer == "gold") {
         gold(hp);
     } else {
         say("Wrong answer...try again!");
         door(hp);
     }
-
 }
 
 const spider = (hp) => {
-    // -10 hp, they can leave if they survive
-    // substract 10 hp then if they survive go back to the bottom of the well.
+    hp -= 5;
+    let scenario = "You go into the path and find out it's a dark tunnel.\nYou keep walking and see something shiny...you get closer...and it's a giant spider!\nIt bites you and...";
+
+    if (hp <= 0) {
+        die(scenario + "you die.\nYou are dead and have lost the game.");
+    }
+    else{
+        say(scenario + "you pass out for a moment but when you regain consciousness the giant spider is gone and there's nothing to do besides going back.");
+        rope(hp);
+    }
+
+
 }
 
 const gold = (hp) => {
