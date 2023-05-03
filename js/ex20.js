@@ -19,8 +19,16 @@ const ask = (hp, prompt) => {
 }
 
 const door = (hp) => {
-    //they have to open the door to get the gold
-    //what kind of puzzle will they solve?
+    puzzle = "Puzzle text";
+    let answer = ask(hp, puzzle);
+
+    if (answer == "correct") {
+        gold(hp);
+    } else {
+        say("Wrong answer...try again!");
+        door(hp);
+    }
+
 }
 
 const spider = (hp) => {
@@ -28,13 +36,29 @@ const spider = (hp) => {
 }
 
 const gold = (hp) => {
-    // end of the game, they win if they get the gold
+    say("Your answer was correct...you hear a click and the door opens.\nYou go through the door and pickup the gold.\n*****You've won the game!!!!*****");
 }
 
 const rope = (hp) => {
-    // they are the bottom of the well
-    // they can go through the door to the gold
-    // or go take a wrong turn to the spider
+    if (hp <= 0) {
+        die("You didn't survive. You are dead!");
+    } else {
+        say("You survived!");
+    }
+    
+    let txt = "You are at the bottom of the well.\nYou see a door in front of you and a path to the side. Which way do you want to go?"
+    let way = ask(hp, txt);
+    console.log(way);
+
+    if (way == "door") {
+        door(hp);
+    } else if (way == "path") {
+        spider(hp);
+    } else {
+        say("That's not an option here. Try again!");
+        say("-----------------------")
+        rope(hp);
+    }
 }
 
 const well = (hp) => {
