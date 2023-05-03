@@ -33,6 +33,7 @@ const door = (hp) => {
 
 const spider = (hp) => {
     // -10 hp, they can leave if they survive
+    // substract 10 hp then if they survive go back to the bottom of the well.
 }
 
 const gold = (hp) => {
