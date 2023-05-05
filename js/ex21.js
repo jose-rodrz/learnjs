@@ -1,11 +1,27 @@
+// data about a person named Frank.
+
+let frank = {name:"Frank", age:34, eyes:"blue"};
+
+const frank_talk = (who, words) => {
+    console.log(`I am ${who.name} and ${words}.`);
+}
+
+frank_talk(frank, "I am talking here!");
+
+// working with that data to put functions in it.
+let mary = {name: "Mary", age:44, eyes:"brown", talk: (who, words)  => {
+    console.log(`I am ${who.name} and ${words}.`);
+}};
+
+//this is kind of annoying though
+mary.talk(mary, "these are some words");
+mary.talk(frank, "I am Frank and what?");
+
 const createPerson = (name, age, eyes) => {
     let person = {name:name, age:age, eyes:eyes}
-    person.talk = (msg) => `I am ${person.name} and ` + msg;
+    person.talk = (msg) => console.log(`I am ${person.name} and ` + msg);
     return person
 }
 
-// example of a constructor that builds a Person object.
-// unfinished exercise
-// left at: In this next code listing we do just that by creating a Person function that builds up an object and returns it
-
-// update 2: just need to type the code from the page but keep my own version because I like it.
+let alex = createPerson("Alex", 16, "green");
+alex.talk("Hi there!");
