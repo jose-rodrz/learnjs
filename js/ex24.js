@@ -20,16 +20,20 @@ class Game {
             this.die("You died!");
         } else {
             return readline.question(prompt + ' ');
+            // prompts the user for a question and returns the user's answer
         }
     }
 
     addRoom(room) {
         this[room.name] = room;
+        // this adds the room name as an attribute of the Game object and stores the whole room object inside it
         room.game = this;
+        // stores the whole Game object itself inside the attribute of the given room object.
     }
 
     play(name) {
         this[name].enter();
+        // uses the name to select the Room that should be played from all the rooms inside the Game object and enters it.
     }
 
     hit(amount) {
@@ -50,12 +54,21 @@ class Room {
 class Door extends Room {
     enter() {
         // they have to open the door and solve the puzzle to get the gold
+        puzzle = `
+You hear an alien voice coming from nowhere and everywhere:
+"Neither silver, nor copper's gleam,
+Cherished by both pauper and queen.
+Solve this riddle and pass the door,
+What treasure lies ahead, explore."
+
+...you dont'hear the voice again after that.\nMaybe...it's a riddle? You decide to scream your answer:
+`
     }
 }
 
 class Spider extends Room {
     enter() {
-        // they enter hereand get -10 hp, they can leave if they survive
+        // they enter here and get -10 hp, they can leave if they survive
     }
 }
 
@@ -98,5 +111,5 @@ game.addRoom(new Rope("rope"));
 game.addRoom(new Gold("gold"));
 game.addRoom(new Spider("spider"));
 game.addRoom(new Door("door"));
-//console.log(Object.entries(game));
+console.log(Object.entries(game));
 game.play("well");
